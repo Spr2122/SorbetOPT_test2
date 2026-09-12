@@ -58,7 +58,7 @@ const website = { '@context': 'https://schema.org', '@type': 'WebSite', name: '�
     <section class="section" id="advantages" aria-labelledby="advantages-title">
       <div class="container">
         <div class="feature-layout">
-          <figure class="feature-image"><img src="/images/mineral.webp" alt="Природный глауконит — минеральное сырьё" loading="lazy" width="900" height="700" /><figcaption>Природное минеральное сырьё</figcaption></figure>
+          <figure class="feature-image"><img src={`${import.meta.env.BASE_URL}images/mineral.webp`} alt="Природный глауконит — минеральное сырьё" loading="lazy" width="900" height="700" /><figcaption>Природное минеральное сырьё</figcaption></figure>
           <div><span class="eyebrow">Почему глауконит</span><h2 id="advantages-title">Свойства и преимущества материала</h2><p class="section-intro">Глауконит относится к природным минералам с сорбционными и ионообменными свойствами. Конкретные параметры применения зависят от фракции, состава и задачи.</p><div class="advantage-list">
             <article><strong>Природное происхождение</strong><p>Минеральное сырьё на основе глауконита.</p></article>
             <article><strong>Разные фракции</strong><p>От крупного материала до тонкого помола и гранулированной продукции.</p></article>
@@ -77,8 +77,8 @@ const website = { '@context': 'https://schema.org', '@type': 'WebSite', name: '�
       <div class="container">
         <div class="section-heading"><span class="eyebrow">Документы и логистика</span><h2 id="documents-title">Документация и доставка</h2></div>
         <div class="info-grid">
-          <article class="info-card"><img src="/images/documents.webp" alt="Техническая документация на минеральную продукцию" loading="lazy" width="700" height="500" /><div><span class="eyebrow">Документы</span><h3>Документация на продукцию</h3><p>По запросу предоставляем имеющиеся документы, характеристики и сведения, необходимые для согласования поставки.</p><a class="button button-primary js-open-contact" href={TELEGRAM_URL} target="_blank" rel="noopener">Запросить документы</a></div></article>
-          <article class="info-card" id="delivery"><img src="/images/delivery-map.webp" alt="Доставка глауконитовой продукции по России" loading="lazy" width="700" height="500" /><div><span class="eyebrow">Логистика</span><h3>Доставка по России</h3><p>Стоимость доставки рассчитывается индивидуально с учётом объёма, упаковки, города назначения и способа перевозки.</p><a class="button button-primary js-open-contact" href={TELEGRAM_URL} target="_blank" rel="noopener">Рассчитать доставку</a></div></article>
+          <article class="info-card"><img src={`${import.meta.env.BASE_URL}images/documents.webp`} alt="Техническая документация на минеральную продукцию" loading="lazy" width="700" height="500" /><div><span class="eyebrow">Документы</span><h3>Документация на продукцию</h3><p>По запросу предоставляем имеющиеся документы, характеристики и сведения, необходимые для согласования поставки.</p><a class="button button-primary js-open-contact" href={TELEGRAM_URL} target="_blank" rel="noopener">Запросить документы</a></div></article>
+          <article class="info-card" id="delivery"><img src="{`${import.meta.env.BASE_URL}images/delivery-map.webp`} alt="Доставка глауконитовой продукции по России" loading="lazy" width="700" height="500" /><div><span class="eyebrow">Логистика</span><h3>Доставка по России</h3><p>Стоимость доставки рассчитывается индивидуально с учётом объёма, упаковки, города назначения и способа перевозки.</p><a class="button button-primary js-open-contact" href={TELEGRAM_URL} target="_blank" rel="noopener">Рассчитать доставку</a></div></article>
         </div>
       </div>
     </section>
