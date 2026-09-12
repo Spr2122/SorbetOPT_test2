@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { TELEGRAM_URL, TELEGRAM_HANDLE } from '../data/site';
+const title = 'Обработка персональных данных | СорбентОпт';
+const description = 'Сайт СорбентОпт не собирает и не хранит персональные данные посетителей.';
+---
+<BaseLayout title={title} description={description} canonical="/privacy/">
+  <Header />
+  <main id="main-content" class="section"><div class="container narrow legal">
+    <span class="eyebrow">Документы</span>
+    <h1>Обработка персональных данных</h1>
+    <p>Сайт СорбентОпт не содержит форм обратной связи и не собирает, не хранит и не обрабатывает персональные данные посетителей (имя, телефон, e-mail и другие сведения).</p>
+    <h2>1. Как с нами связаться</h2>
+    <p>Все обращения по продукции, документам и доставке принимаются напрямую в мессенджере Telegram: <a href={TELEGRAM_URL} target="_blank" rel="noopener">{TELEGRAM_HANDLE}</a>. Переписка ведётся в самом Telegram и на серверах сайта не хранится.</p>
+    <h2>2. Файлы cookie и аналитика</h2>
+    <p>Сайт не использует cookie-файлы для сбора персональных данных и системы аналитики, идентифицирующие посетителя.</p>
+    <h2>3. Изменения политики</h2>
+    <p>Если в будущем на сайте появятся формы или сервисы, обрабатывающие персональные данные, эта страница будет обновлена соответствующим образом до их запуска.</p>
+  </div></main>
+  <Footer />
+</BaseLayout>

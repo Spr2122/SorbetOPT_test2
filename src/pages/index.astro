@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ProductCard from '../components/ProductCard.astro';
+import { products } from '../data/products';
+import { TELEGRAM_URL, CONTACT_CHANNELS } from '../data/site';
+
+const title = 'Глауконитовый сорбент оптом по России | СорбентОпт';
+const description = 'Глауконитовый сорбент оптом по России: фракции 0,01–5 мм, концентрат и гранулированная продукция. Поставка от 10 тонн. Расчёт цены и доставки.';
+const siteUrl = 'https://sorbentopt.ru';
+const organization = {
+  '@context': 'https://schema.org', '@type': 'Organization', name: 'СорбентОпт', url: siteUrl,
+  logo: `${siteUrl}/favicon.svg`, telephone: '+7-999-123-45-67', email: 'info@sorbentopt.ru', areaServed: 'RU'
+};
+const website = { '@context': 'https://schema.org', '@type': 'WebSite', name: 'СорбентОпт', url: siteUrl, inLanguage: 'ru-RU' };
+---
+<BaseLayout title={title} description={description} canonical="/" schema={[organization, website]}>
+  <Header />
+  <main id="main-content">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-content">
+        <div class="hero-copy">
+          <span class="eyebrow eyebrow-light">Природный минерал</span>
+          <h1 id="hero-title">Глауконитовый сорбент <span>оптом</span> по России</h1>
+          <p class="hero-lead">Природный глауконит для очистки почв и воды, ликвидации нефтяных загрязнений, промышленного применения и задач сельского хозяйства.</p>
+          <ul class="hero-facts">
+            <li><span class="fact-icon">✓</span>Разные фракции и виды продукции</li>
+            <li><span class="fact-icon">✓</span>Поставка от 10 тонн</li>
+            <li><span class="fact-icon">✓</span>Доставка по регионам России</li>
+          </ul>
+          <div class="hero-actions"><a class="button button-primary js-open-contact" href={TELEGRAM_URL} target="_blank" rel="noopener">Связаться с нами</a><a class="button button-outline-light" href="#products">Смотреть продукцию</a></div>
+        </div>
+        <aside class="hero-price" aria-label="Условия поставки"><small>Цена от</small><strong>10 200 ₽/т</strong><span>Поставка<br />от 10 тонн</span></aside>
+      </div>
+    </section>
+
+    <section class="section" id="products" aria-labelledby="products-title">
+      <div class="container">
+        <div class="section-heading split"><div><span class="eyebrow">Наша продукция</span><h2 id="products-title">Глауконитовая продукция оптом</h2><p>Основные фракции и формы продукции. Точную стоимость и наличие уточняем под объём заказа.</p></div><a class="text-link" href="/catalog/">Весь каталог <span aria-hidden="true">→</span></a></div>
+        <div class="product-grid">{products.map((product) => <ProductCard product={product} />)}</div>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="applications" aria-labelledby="applications-title">
+      <div class="container">
+        <div class="section-heading"><span class="eyebrow">Применение</span><h2 id="applications-title">Где используется глауконит</h2><p>Минеральный материал для экологических, промышленных и агротехнических задач.</p></div>
+        <div class="application-grid">
+          <article><span class="application-number">01</span><h3>Нефтегазовая и промышленная отрасль</h3><p>Сорбционные материалы, очистка загрязнённых материалов и работы при ликвидации разливов.</p></article>
+          <article><span class="application-number">02</span><h3>Экология и рекультивация</h3><p>Работы с загрязнёнными почвами и восстановление территорий в рамках технологических решений.</p></article>
+          <article><span class="application-number">03</span><h3>Водоподготовка</h3><p>Применение минеральных материалов в системах фильтрации и очистки воды — по техническому заданию.</p></article>
+          <article><span class="application-number">04</span><h3>Сельское хозяйство</h3><p>Мелиоративные и агротехнические решения с использованием природных минеральных материалов.</p></article>
+          <article><span class="application-number">05</span><h3>Животноводство и птицеводство</h3><p>Использование минеральной продукции в специализированных технологиях и составах — по согласованной спецификации.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="advantages" aria-labelledby="advantages-title">
+      <div class="container">
+        <div class="feature-layout">
+          <figure class="feature-image"><img src="/images/mineral.webp" alt="Природный глауконит — минеральное сырьё" loading="lazy" width="900" height="700" /><figcaption>Природное минеральное сырьё</figcaption></figure>
+          <div><span class="eyebrow">Почему глауконит</span><h2 id="advantages-title">Свойства и преимущества материала</h2><p class="section-intro">Глауконит относится к природным минералам с сорбционными и ионообменными свойствами. Конкретные параметры применения зависят от фракции, состава и задачи.</p><div class="advantage-list">
+            <article><strong>Природное происхождение</strong><p>Минеральное сырьё на основе глауконита.</p></article>
+            <article><strong>Разные фракции</strong><p>От крупного материала до тонкого помола и гранулированной продукции.</p></article>
+            <article><strong>Оптовые объёмы</strong><p>Поставка от 10 тонн с расчётом логистики под пункт назначения.</p></article>
+            <article><strong>Документы по запросу</strong><p>Предоставление доступной технической документации и сведений о продукции.</p></article>
+          </div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="producer" aria-labelledby="producer-title">
+      <div class="container producer-inner"><div><span class="eyebrow eyebrow-light">Поставки</span><h2 id="producer-title">Организуем поставку глауконитовой продукции</h2><p>Помогаем подобрать подходящую фракцию, объём, упаковку и вариант доставки по России. Если у вас есть техническое задание, отправьте его нам любым удобным способом.</p><a class="button button-light js-open-contact" href={TELEGRAM_URL} target="_blank" rel="noopener">Обсудить поставку</a></div></div>
+    </section>
+
+    <section class="section" id="documents" aria-labelledby="documents-title">
+      <div class="container">
+        <div class="section-heading"><span class="eyebrow">Документы и логистика</span><h2 id="documents-title">Документация и доставка</h2></div>
+        <div class="info-grid">
+          <article class="info-card"><img src="/images/documents.webp" alt="Техническая документация на минеральную продукцию" loading="lazy" width="700" height="500" /><div><span class="eyebrow">Документы</span><h3>Документация на продукцию</h3><p>По запросу предоставляем имеющиеся документы, характеристики и сведения, необходимые для согласования поставки.</p><a class="button button-primary js-open-contact" href={TELEGRAM_URL} target="_blank" rel="noopener">Запросить документы</a></div></article>
+          <article class="info-card" id="delivery"><img src="/images/delivery-map.webp" alt="Доставка глауконитовой продукции по России" loading="lazy" width="700" height="500" /><div><span class="eyebrow">Логистика</span><h3>Доставка по России</h3><p>Стоимость доставки рассчитывается индивидуально с учётом объёма, упаковки, города назначения и способа перевозки.</p><a class="button button-primary js-open-contact" href={TELEGRAM_URL} target="_blank" rel="noopener">Рассчитать доставку</a></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="contacts" aria-labelledby="contacts-title">
+      <div class="container contacts-inner">
+        <span class="eyebrow">Как заказать</span>
+        <h2 id="contacts-title">Свяжитесь с нами</h2>
+        <p>Никаких форм и анкет — напишите или позвоните напрямую, укажите продукт, объём и город доставки, и мы подготовим расчёт.</p>
+        <ul class="contacts-channel-list">
+          {CONTACT_CHANNELS.map((channel) => (
+            <li><a href={channel.url} target="_blank" rel="noopener">{channel.label}<span>{channel.value}</span></a></li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
