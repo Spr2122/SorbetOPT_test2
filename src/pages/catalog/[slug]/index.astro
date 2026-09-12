@@ -4,6 +4,7 @@ import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
 import { products } from '../../../data/products';
 import { TELEGRAM_URL } from '../../../data/site';
+import { withBase } from '../../../utils/paths';
 
 export function getStaticPaths() {
   return products.map((product) => ({ params: { slug: product.slug }, props: { product } }));
@@ -24,9 +25,9 @@ const productSchema = {
 <BaseLayout title={title} description={description} canonical={`/catalog/${product.slug}/`} ogImage={product.image} schema={productSchema}>
   <Header />
   <main id="main-content">
-    <div class="container breadcrumbs"><a href="/">Главная</a><span>/</span><a href="/catalog/">Каталог</a><span>/</span><span>{product.shortName}</span></div>
+    <div class="container breadcrumbs"><a href={withBase('/')}>Главная</a><span>/</span><a href={withBase('/catalog/')}>Каталог</a><span>/</span><span>{product.shortName}</span></div>
     <section class="section product-detail"><div class="container product-detail-grid">
-      <figure class="detail-image"><img src={product.image} alt={product.name} width="1000" height="740" /></figure>
+      <figure class="detail-image"><img src={withBase(product.image)} alt={product.name} width="1000" height="740" /></figure>
       <div class="detail-copy"><span class="eyebrow">Глауконитовая продукция</span><h1>{product.name}</h1><p class="detail-description">{product.description}</p>
         <dl class="spec-list"><div><dt>Фракция</dt><dd>{product.fraction}</dd></div><div><dt>Упаковка</dt><dd>{product.packaging}</dd></div><div><dt>Минимальная партия</dt><dd>{product.minimum}</dd></div><div><dt>Цена</dt><dd>{product.price}</dd></div></dl>
         <a class="button button-primary js-open-contact" href={TELEGRAM_URL} target="_blank" rel="noopener">Связаться с нами</a>
