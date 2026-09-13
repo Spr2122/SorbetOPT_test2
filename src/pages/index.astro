@@ -4,7 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ProductCard from '../components/ProductCard.astro';
 import { products } from '../data/products';
-import { TELEGRAM_URL, CONTACT_CHANNELS } from '../data/site';
+import { TELEGRAM_URL, CONTACT_CHANNELS, PRICE_LIST_DATE, PRICE_VAT_NOTE, MANUFACTURER_NAME } from '../data/site';
 import { withBase } from '../utils/paths';
 
 const title = 'Глауконитовый сорбент оптом по России | СорбентОпт';
@@ -40,6 +40,7 @@ const website = { '@context': 'https://schema.org', '@type': 'WebSite', name: '�
       <div class="container">
         <div class="section-heading split"><div><span class="eyebrow">Наша продукция</span><h2 id="products-title">Глауконитовая продукция оптом</h2><p>Основные фракции и формы продукции. Точную стоимость и наличие уточняем под объём заказа.</p></div><a class="text-link" href={withBase('/catalog/')}>Весь каталог <span aria-hidden="true">→</span></a></div>
         <div class="product-grid">{products.map((product) => <ProductCard product={product} />)}</div>
+        <p class="notice price-notice">Прайс-лист актуален на {PRICE_LIST_DATE}. {PRICE_VAT_NOTE}</p>
       </div>
     </section>
 
@@ -52,6 +53,9 @@ const website = { '@context': 'https://schema.org', '@type': 'WebSite', name: '�
           <article><span class="application-number">03</span><h3>Водоподготовка</h3><p>Применение минеральных материалов в системах фильтрации и очистки воды — по техническому заданию.</p></article>
           <article><span class="application-number">04</span><h3>Сельское хозяйство</h3><p>Мелиоративные и агротехнические решения с использованием природных минеральных материалов.</p></article>
           <article><span class="application-number">05</span><h3>Животноводство и птицеводство</h3><p>Использование минеральной продукции в специализированных технологиях и составах — по согласованной спецификации.</p></article>
+          <article><span class="application-number">06</span><h3>Энергетика</h3><p>Добавки для повышения эффективности сжигания топлива и снижения вредных выбросов — по техническому заданию.</p></article>
+          <article><span class="application-number">07</span><h3>Пищевая промышленность</h3><p>Применение минерального сырья в пищевых технологических процессах — по согласованной спецификации.</p></article>
+          <article><span class="application-number">08</span><h3>Медицина и косметология</h3><p>Минеральное сырьё как компонент косметических составов и специализированных смесей — по согласованной спецификации.</p></article>
         </div>
       </div>
     </section>
@@ -70,6 +74,54 @@ const website = { '@context': 'https://schema.org', '@type': 'WebSite', name: '�
       </div>
     </section>
 
+    <section class="section section-muted" id="specs" aria-labelledby="specs-title">
+      <div class="container">
+        <div class="section-heading"><span class="eyebrow">Характеристики</span><h2 id="specs-title">Химический состав и свойства глауконита</h2><p>Типовые показатели природного глауконита. Точные значения для конкретной товарной партии — в сертификате и паспорте безопасности, предоставляются по запросу.</p></div>
+        <div class="specs-layout">
+          <div class="specs-block">
+            <h3>Химический состав (типовой), % масс.</h3>
+            <table class="specs-table">
+              <thead><tr><th>Оксид</th><th>Содержание, %</th></tr></thead>
+              <tbody>
+                <tr><td>SiO₂</td><td>52,9</td></tr>
+                <tr><td>Fe₂O₃</td><td>16,7</td></tr>
+                <tr><td>Al₂O₃</td><td>11,8</td></tr>
+                <tr><td>K₂O</td><td>8,52</td></tr>
+                <tr><td>MgO</td><td>4,31</td></tr>
+                <tr><td>CaO</td><td>0,82</td></tr>
+                <tr><td>P₂O₅</td><td>0,04–0,26</td></tr>
+                <tr><td>Na₂O</td><td>0,14</td></tr>
+                <tr><td>MnO</td><td>0,03</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="specs-block">
+            <h3>Физические свойства</h3>
+            <dl class="spec-list">
+              <div><dt>Насыпная плотность</dt><dd>1,7–1,9 г/см³</dd></div>
+              <div><dt>Влажность природного сырья</dt><dd>20–25%</dd></div>
+              <div><dt>Обменная (сорбционная) ёмкость</dt><dd>390–550 мг-экв/100 г</dd></div>
+              <div><dt>Диапазон фракций сырья</dt><dd>0,03–0,65 мм</dd></div>
+            </dl>
+            <h3>Эффективность очистки от тяжёлых металлов*</h3>
+            <ul class="metal-list">
+              <li><span>Pb</span><b>99%</b></li>
+              <li><span>Fe</span><b>99%</b></li>
+              <li><span>Co</span><b>97%</b></li>
+              <li><span>Cu</span><b>96%</b></li>
+              <li><span>Cd</span><b>96%</b></li>
+              <li><span>Mn</span><b>95%</b></li>
+              <li><span>Cr</span><b>92%</b></li>
+              <li><span>Ni</span><b>90%</b></li>
+              <li><span>Zn</span><b>90%</b></li>
+              <li><span>Hg</span><b>64%</b></li>
+            </ul>
+            <p class="notice">* Показатели типичны для глауконита как минерала по опубликованным данным исследований сорбционных свойств. Не являются гарантией для каждой конкретной партии — точные значения см. в протоколах испытаний и сертификате, предоставляются по запросу.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="producer" style={`--producer-bg:url(${withBase('/images/production.webp')})`} aria-labelledby="producer-title">
       <div class="container producer-inner"><div><span class="eyebrow eyebrow-light">Поставки</span><h2 id="producer-title">Организуем поставку глауконитовой продукции</h2><p>Помогаем подобрать подходящую фракцию, объём, упаковку и вариант доставки по России. Если у вас есть техническое задание, отправьте его нам любым удобным способом.</p><a class="button button-light js-open-contact" href={TELEGRAM_URL} target="_blank" rel="noopener">Обсудить поставку</a></div></div>
     </section>
@@ -78,7 +130,7 @@ const website = { '@context': 'https://schema.org', '@type': 'WebSite', name: '�
       <div class="container">
         <div class="section-heading"><span class="eyebrow">Документы и логистика</span><h2 id="documents-title">Документация и доставка</h2></div>
         <div class="info-grid">
-          <article class="info-card"><img src={withBase('/images/documents.webp')} alt="Техническая документация на минеральную продукцию" loading="lazy" width="700" height="500" /><div><span class="eyebrow">Документы</span><h3>Документация на продукцию</h3><p>По запросу предоставляем имеющиеся документы, характеристики и сведения, необходимые для согласования поставки.</p><a class="button button-primary js-open-contact" href={TELEGRAM_URL} target="_blank" rel="noopener">Запросить документы</a></div></article>
+          <article class="info-card"><img src={withBase('/images/documents.webp')} alt="Техническая документация на минеральную продукцию" loading="lazy" width="700" height="500" /><div><span class="eyebrow">Документы</span><h3>Документация на продукцию</h3><p>Как официальный представитель {MANUFACTURER_NAME} предоставляем по запросу: сертификат соответствия, санитарно-эпидемиологическое заключение, паспорт безопасности (MSDS) и протоколы испытаний.</p><a class="button button-primary js-open-contact" href={TELEGRAM_URL} target="_blank" rel="noopener">Запросить документы</a></div></article>
           <article class="info-card" id="delivery"><img src={withBase('/images/delivery-map.webp')} alt="Доставка глауконитовой продукции по России" loading="lazy" width="700" height="500" /><div><span class="eyebrow">Логистика</span><h3>Доставка по России</h3><p>Стоимость доставки рассчитывается индивидуально с учётом объёма, упаковки, города назначения и способа перевозки.</p><a class="button button-primary js-open-contact" href={TELEGRAM_URL} target="_blank" rel="noopener">Рассчитать доставку</a></div></article>
         </div>
       </div>

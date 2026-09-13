@@ -1,5 +1,5 @@
 ---
-import { CONTACT_CHANNELS } from '../data/site';
+import { CONTACT_CHANNELS, REPRESENTATIVE_LINE } from '../data/site';
 import { withBase } from '../utils/paths';
 ---
 <footer class="site-footer">
@@ -8,7 +8,7 @@ import { withBase } from '../utils/paths';
       <div>
         <a class="brand footer-brand" href={withBase('/')} aria-label="СорбентОпт — главная">
           <svg class="brand-mark" viewBox="0 0 80 66" aria-hidden="true"><path d="M2 59 35 9l17 24 8-12 18 38H2Z"/><path d="m20 59 21-32 15 22-7 10H20Z" class="light"/><path d="m42 28 7-11 10 15-7 10-10-14Z" class="dark"/></svg>
-          <span><strong>СорбентОпт</strong><small>Природные минералы и сорбенты</small></span>
+          <span><strong>СорбентОпт</strong><small>{REPRESENTATIVE_LINE}</small></span>
         </a>
         <p class="footer-note">Оптовые поставки глауконитовой продукции по России. Подбор фракции, объёма и условий доставки под задачу клиента.</p>
       </div>
