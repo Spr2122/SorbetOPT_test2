@@ -1,0 +1,13 @@
+sorbentopt.ru, www.sorbentopt.ru {
+    encode zstd gzip
+
+    root * /var/www/sorbentopt/dist
+
+    handle /api/* {
+        reverse_proxy 127.0.0.1:3000
+    }
+
+    handle {
+        file_server
+    }
+}

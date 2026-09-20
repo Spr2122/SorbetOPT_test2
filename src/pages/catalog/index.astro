@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import { products } from '../../data/products';
+import { withBase } from '../../utils/paths';
+const title = 'Каталог глауконитовой продукции оптом | СорбентОпт';
+const description = 'Каталог глауконитовой продукции: сорбенты разных фракций, обогащённый глауконит, концентрат и гранулированная продукция. Оптовые поставки по России.';
+---
+<BaseLayout title={title} description={description} canonical="/catalog/">
+  <Header />
+  <main id="main-content" class="catalog-page">
+    <div class="container breadcrumbs"><a href={withBase('/')}>Главная</a><span>/</span><span>Каталог</span></div>
+    <section class="section catalog-heading"><div class="container"><span class="eyebrow">Каталог</span><h1>Глауконитовая продукция оптом</h1><p>Фракции, формы выпуска и условия поставки. Для точного расчёта укажите объём и город доставки. Фотографии на сайте иллюстративные и могут отличаться от партии товара.</p></div></section>
+    <section class="section"><div class="container"><div class="product-grid">{products.map((product) => <ProductCard product={product} />)}</div></div></section>
+  </main>
+  <Footer />
+</BaseLayout>

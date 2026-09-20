@@ -1,0 +1,21 @@
+[Unit]
+Description=SorbentOpt Node.js API
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/sorbentopt
+Environment=NODE_ENV=production
+Environment=PORT=3000
+ExecStart=/usr/bin/node /var/www/sorbentopt/server/index.js
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ReadWritePaths=/var/www/sorbentopt/server/data
+
+[Install]
+WantedBy=multi-user.target

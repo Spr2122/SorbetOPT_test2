@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { products } from '../../../data/products';
+import { TELEGRAM_URL } from '../../../data/site';
+import { withBase } from '../../../utils/paths';
+
+export function getStaticPaths() {
+  return products.map((product) => ({ params: { slug: product.slug }, props: { product } }));
+}
+const { product } = Astro.props;
+const title = `${product.name} — цена и поставка | СорбентОпт`;
+const description = `${product.name}. Фракция ${product.fraction}, упаковка ${product.packaging}. Оптовая поставка от 10 тонн по России. Цена ${product.price}.`;
+const siteUrl = 'https://sorbentopt.ru';
+const numericPrice = product.price.replace(/\D/g, '');
+const priceValidUntil = new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().slice(0, 10);
+const productSchema = {
+  '@context': 'https://schema.org', '@type': 'Product', name: product.name, sku: product.slug,
+  description: product.description, image: [`${siteUrl}${product.image}`], url: `${siteUrl}/catalog/${product.slug}/`,
+  brand: { '@type': 'Brand', name: 'СорбентОпт' },
+  ...(numericPrice ? { offers: { '@type': 'Offer', priceCurrency: 'RUB', availability: 'https://schema.org/InStock', price: numericPrice, priceValidUntil, url: `${siteUrl}/catalog/${product.slug}/` } } : {})
+};
+---
+<BaseLayout title={title} description={description} canonical={`/catalog/${product.slug}/`} ogImage={product.image} schema={productSchema}>
+  <Header />
+  <main id="main-content">
+    <div class="container breadcrumbs"><a href={withBase('/')}>Главная</a><span>/</span><a href={withBase('/catalog/')}>Каталог</a><span>/</span><span>{product.shortName}</span></div>
+    <section class="section product-detail"><div class="container product-detail-grid">
+      <figure class="detail-image"><img src={withBase(product.image)} alt={product.name} width="1000" height="740" /><figcaption>Фото носит иллюстративный характер и может отличаться от партии товара. Точный внешний вид, цвет и фракцию уточняйте у поставщика.</figcaption></figure>
+      <div class="detail-copy"><span class="eyebrow">Глауконитовая продукция</span><h1>{product.name}</h1><p class="detail-description">{product.description}</p>
+        <dl class="spec-list"><div><dt>Фракция</dt><dd>{product.fraction}</dd></div><div><dt>Упаковка</dt><dd>{product.packaging}</dd></div><div><dt>Минимальная партия</dt><dd>{product.minimum}</dd></div><div><dt>Цена</dt><dd>{product.price}</dd></div></dl>
+        <a class="button button-primary js-open-contact" href={TELEGRAM_URL} target="_blank" rel="noopener">Связаться с нами</a>
+      </div>
+    </div></section>
+    <section class="section section-muted"><div class="container narrow"><span class="eyebrow">Применение</span><h2>Возможные области применения</h2><ul class="application-list">{product.applications.map((item) => <li>{item}</li>)}</ul><p class="notice">Окончательный выбор продукции выполняется по техническим требованиям, фракции и условиям конкретной задачи.</p></div></section>
+  </main>
+  <Footer />
+</BaseLayout>
